@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pickle Market</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Cursive', sans-serif;
+        }
+        header {
+            font-size: 12px;
+        }
+        h1, h2, h3, p, a, button {
+            font-family: 'Cursive', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Pickle Market</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Best Sellers</a></li>
+                <li><a href="#">Top Selling</a></li>
+                <li><a href="#">Combo Products</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="#">Spicy Powders</a></li>
+                <li><a href="#">Winter Collection</a></li>
+                <li><a href="#">New</a></li>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">More</a></li>
+            </ul>
+        </nav>
+        <div class="header-right">
+            <input type="text" id="search" placeholder="Search Pickles..." onkeyup="searchPickles()">
+            <a href="#" onclick="openCartModal()">
+                <img src="images/cart-icon.png" alt="Cart" class="cart-icon">
+            </a>
+        </div>
+    </header>
+    
+    <section id="hero">
+        <h1>Fresh & Homemade Pickles</h1>
+        <p>Delicious homemade pickles, made with love and tradition.</p>
+        <button onclick="scrollToProducts()">Shop Now</button>
+    </section>
+    
+    <section id="products">
+        <h2>Our Pickles</h2>
+        <div class="product-container">
+            <div class="product" data-price="150">
+                <img src="images/image.png" alt="Mango Pickle">
+                <h3>Mango Pickle</h3>
+                <p>Price: ₹150</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product" data-price="120">
+                <img src="images/image.png" alt="Lime Pickle">
+                <h3>Lime Pickle</h3>
+                <p>Price: ₹120</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product" data-price="130">
+                <img src="images/image.png" alt="Mixed Pickle">
+                <h3>Mixed Pickle</h3>
+                <p>Price: ₹130</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product coming-soon">
+                <img src="images/image.png" alt="Coming Soon">
+                <h3>Mixed Vegetable Pickle</h3>
+                <p>Coming Soon!</p>
+            </div>
+        </div>
+    </section>
+    
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeCartModal()">&times;</span>
+            <h2>Shopping Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: <span id="total-price">0</span></p>
+            <button onclick="proceedPayment()">Proceed to Payment</button>
+        </div>
+    </div>
+    
+    <div id="payment-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <h2>Enter Mobile Number</h2>
+            <input type="text" id="mobile-number" placeholder="Enter mobile number">
+            <button onclick="sendOTP()">Send OTP</button>
+            <div id="otp-section" style="display: none;">
+                <h2>Enter OTP</h2>
+                <input type="text" id="otp" placeholder="Enter OTP">
+                <button onclick="verifyOTP()">Verify OTP</button>
+            </div>
+            <div id="address-section" style="display: none;">
+                <h2>Enter Address</h2>
+                <input type="text" id="address" placeholder="Enter delivery address">
+                <input type="text" id="pincode" placeholder="Enter pincode">
+                <button onclick="confirmOrder()">Confirm Order</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Pickle Market | Homemade Goodness</p>
+    </footer>
+</body>
+</html>
